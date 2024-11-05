@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const lista = document.getElementById('lista');
   const novoItemInput = document.getElementById('novoItem');
   const adicionarButton = document.getElementById('adicionar');
+
+  // Carrega itens do localStorage ao carregar a página
+  loadItems();
   
   adicionarButton.addEventListener('click', function() {
     const novoItem = novoItemInput.value.trim();
