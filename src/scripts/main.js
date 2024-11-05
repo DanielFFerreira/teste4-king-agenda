@@ -6,10 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleSwitch = document.getElementById('toggleSwitch');
   const body = document.body;
 
-  // Carrega itens do localStorage ao carregar a página
   loadItems();
 
-  // Carrega o tema do localStorage ao carregar a página
   loadTheme();
 
   adicionarButton.addEventListener('click', function () {
