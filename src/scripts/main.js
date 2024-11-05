@@ -3,9 +3,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const lista = document.getElementById('lista');
   const novoItemInput = document.getElementById('novoItem');
   const adicionarButton = document.getElementById('adicionar');
+  const toggleSwitch = document.getElementById('toggleSwitch');
+  const body = document.body;
 
   // Carrega itens do localStorage ao carregar a página
   loadItems();
+
+  // Carrega o tema do localStorage ao carregar a página
+  loadTheme();
 
   adicionarButton.addEventListener('click', function () {
     const novoItem = novoItemInput.value.trim();
@@ -13,6 +18,19 @@ document.addEventListener('DOMContentLoaded', function () {
       addItem(novoItem);
       novoItemInput.value = '';
     }
+  });
+
+  toggleSwitch.addEventListener('click', function () {
+    if (toggleSwitch.classList.contains('day')) {
+      toggleSwitch.classList.remove('day');
+      toggleSwitch.classList.add('night');
+      body.classList.add('dark-mode');
+    } else {
+      toggleSwitch.classList.remove('night');
+      toggleSwitch.classList.add('day');
+      body.classList.remove('dark-mode');
+    }
+    saveTheme();
   });
 
   function addItem(item) {
@@ -76,7 +94,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function saveTheme() {
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+  }
+
+  function loadTheme() {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+      body.classList.add('dark-mode');
+      toggleSwitch.classList.remove('day');
+      toggleSwitch.classList.add('night');
+    } else {
+      body.classList.remove('dark-mode');
+      toggleSwitch.classList.remove('night');
+      toggleSwitch.classList.add('day');
+    }
+  }
 });
+
 
 
 

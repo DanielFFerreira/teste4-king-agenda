@@ -13,15 +13,16 @@ html {
   margin: 0;
   @include flexbox-center;
   flex-direction: column;
-  background-color: $gray94;
 }
+
+body { transition: background-color 1s ease; }
 
 #lista {
   margin-top: 20px;
   list-style-type: none;
 }
 
-.form__container {
+.container {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   background-color: $white;
