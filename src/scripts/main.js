@@ -30,6 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
     saveItems();
   }
 
+  function removeItem(itemElement) {
+    lista.removeChild(itemElement);
+    saveItems();
+  }
+
+  function saveItems() {
+    const items = [];
+    lista.querySelectorAll('.item').forEach(function (itemElement) {
+      items.push(itemElement.textContent.slice(0, -2));
+    });
+    localStorage.setItem('listaDeItens', JSON.stringify(items));
+  }
+  
+
 });
 
 
