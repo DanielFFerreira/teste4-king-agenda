@@ -6,7 +6,7 @@ Essa teste é um meio de testar os seus conhecimento na linguagem de programaç�
 
 ## 🚀 Instalando as dependências do projeto
 
-* utilizando o terminal entre até a pasta do projeto (teste3-king)
+* utilizando o terminal entre até a pasta do projeto (teste5-king-agenda)
 * depois realize o seguinte comando:
 
 ```
