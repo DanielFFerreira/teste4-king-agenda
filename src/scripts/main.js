@@ -43,6 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('listaDeItens', JSON.stringify(items));
   }
   
+  function loadItems() {
+    const savedItems = localStorage.getItem('listaDeItens');
+    if (savedItems) {
+      JSON.parse(savedItems).forEach(function (item) {
+        addItem(item);
+      });
+    }
+  }
 
 });
 
