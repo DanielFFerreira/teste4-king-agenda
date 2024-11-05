@@ -1,0 +1,15 @@
+/*=============== BUTTON ===============*/
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: $purple;
+  color: $white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $purpleHouver;
+  }
+}
