@@ -6,8 +6,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
   adicionarButton.addEventListener('click', function() {
     const novoItem = novoItemInput.value.trim();
-    console.log(novoItem);
+    if(novoItem) {
+      addItem(novoItem);
+      novoItemInput.value = '';
+    }
   });
+
+  function addItem(item) {
+    const li = document.createElement('li');
+    li.className = 'item';
+    li.textContent = item;
+
+    const removerButton = document.createElement('span');
+    removerButton.className = 'remover';
+    removerButton.textContent = ' X';
+    removerButton.addEventListener('click', function () {
+      removeItem(li);
+    });
+
+    li.appendChild(removerButton);
+    lista.appendChild(li);
+
+    saveItems();
+  }
 
 });
 
