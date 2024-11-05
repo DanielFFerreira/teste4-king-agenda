@@ -24,13 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
     removerButton.className = 'remover';
     removerButton.textContent = ' X';
     removerButton.addEventListener('click', function () {
-      removeItem(li);
+      confirmarRemocao(li);
     });
 
     li.appendChild(removerButton);
     lista.appendChild(li);
 
     saveItems();
+  }
+
+  function confirmarRemocao(itemElement) {
+    if (confirm('Deseja realmente excluir este item?')) {
+      removeItem(itemElement);
+    }
   }
 
   function removeItem(itemElement) {
