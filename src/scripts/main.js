@@ -1,15 +1,15 @@
 /*================= JAVASCRIPT =================*/
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const lista = document.getElementById('lista');
   const novoItemInput = document.getElementById('novoItem');
   const adicionarButton = document.getElementById('adicionar');
 
   // Carrega itens do localStorage ao carregar a página
   loadItems();
-  
-  adicionarButton.addEventListener('click', function() {
+
+  adicionarButton.addEventListener('click', function () {
     const novoItem = novoItemInput.value.trim();
-    if(novoItem) {
+    if (novoItem) {
       addItem(novoItem);
       novoItemInput.value = '';
     }
@@ -34,9 +34,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function confirmarRemocao(itemElement) {
-    if (confirm('Deseja realmente excluir este item?')) {
-      removeItem(itemElement);
-    }
+    Swal.fire({
+      title: 'Deseja realmente excluir este item?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Sim, excluir!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeItem(itemElement);
+        Swal.fire(
+          'Excluído!',
+          'O item foi excluído com sucesso.',
+          'success'
+        );
+      }
+    });
   }
 
   function removeItem(itemElement) {
@@ -51,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     localStorage.setItem('listaDeItens', JSON.stringify(items));
   }
-  
+
   function loadItems() {
     const savedItems = localStorage.getItem('listaDeItens');
     if (savedItems) {
