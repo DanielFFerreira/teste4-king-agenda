@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){document.getElementById("lista");let t=document.getElementById("novoItem");document.getElementById("adicionar").addEventListener("click",function(){var e=t.value.trim();console.log(e)})});
